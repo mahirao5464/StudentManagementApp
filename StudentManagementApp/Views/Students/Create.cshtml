@@ -1,0 +1,31 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Create Student";
+}
+<h3>Add Student Form</h3>
+
+<div class="container">
+    <form class="row g-3" asp-action="Create">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="col-md-4">
+            <label asp-for="Name" class="form-label"></label>
+            <input  class="form-control"  asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="FatherName" class="form-label"></label>
+            <input class="form-control" asp-for="FatherName" />
+            <span class="text-danger" asp-validation-for="FatherName"></span>
+        </div>
+
+        <div class="col-12">
+             <button class="btn btn-primary" type="submit">Add</button>
+        </div>
+</form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

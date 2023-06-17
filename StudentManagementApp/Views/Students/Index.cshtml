@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Student>
+<h3>Students</h3>
+<a class="btn btn-info" asp-action="Create">Create Student</a>
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"> @Html.DisplayNameFor(el=>el.Id)</th>
+                <th scope="col">@Html.DisplayNameFor(el=>el.Name)</th>
+                <th scope="col">@Html.DisplayNameFor(el=>el.FatherName)</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(el=>student.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(el=>student.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(el=>student.FatherName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Update", "Edit", new {  id=student.Id}, new {@class="btn btn-info", xyz="xyz" }) |
+                        @Html.ActionLink("Details", "Details", new {  id=student.Id }, new {@class="btn btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new {  id=student.Id }, new {@class="btn btn-danger"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
